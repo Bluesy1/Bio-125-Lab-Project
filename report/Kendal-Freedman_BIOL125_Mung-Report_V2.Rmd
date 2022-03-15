@@ -9,15 +9,12 @@ output:
     latex_engine: xelatex # needed to change font with the "mainfont" option
     fig_caption: yes
 mainfont: Times New Roman # change font
-
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE) # sets echo = FALSE as a default
 library(readr)
 library(dplyr)
-Data <- read_csv("../processed_data/Kendal-Freedman_BIOL125_Mung_Processed-Data.csv", show_col_types = FALSE)
-Ex_Length <- read_csv("../example_data/Kendal-Freedman_BIOL125_Example-Length.csv", show_col_types = FALSE)
-Ex_Germination <- read_csv("../example_data/Kendal-Freedman_BIOL125_Example-Germination.csv", show_col_types = FALSE)
+Ex_Data <- read_csv("../example_data/Kendal-Freedman_BIOL125_Example.csv", show_col_types = FALSE)
 Summary_Stats <- read_csv("../analysis/Kendal-Freedman_BIOL125_Analysis.csv", show_col_types = FALSE)
 ```
 
@@ -55,14 +52,9 @@ Each section of paper towel was prepared using the following method: Each sectio
 When the beans were measured, the germination state and length were separately recorded into two comma separated files where germination was recorded as a categorical `Yes`/`No`, with an optional `Molded` state to apply if a bean had molded and had to be discarded early. A millimeter level precision ruler was used to record the length of the root on each bean, approximated to the $10^{th}$ of a millimeter. For molded beans, the length for the bean was left blank. Data was recorded using the following example schema, first for length, and then for germination.
 
 ```{r, echo=FALSE}
-ex_len <- head(Ex_Length)
-knitr::kable(ex_len, caption = "Example length data collection")
+knitr::kable(head(Ex_Data), caption = "Example data collection")
 ```
 
-```{r, echo=FALSE}
-ex_germ <- head(Ex_Germination)
-knitr::kable(ex_germ, caption = "Example germination data collection")
-```
 
 # Results
 
@@ -99,7 +91,7 @@ Oplinger et al. (1997) found that the ideal pH for mung bean growth is 6.2 to 7.
 
 The determination on pH found in Oplinger et al. (1997) that a pH range of 6.2 to 7.2 reinforces the result and recommendation we found in our experimentation on mung beans, and confirms that Site 3 is a suitable location to plant mung beans. We do caution as per our observations and the findings of the aforementioned report to monitor the pH and be prepared to add alkaline or acidic treatments to keep the pH within the suitable range for growth of Mung Beans, if necessary.
 
-Furthermore, this report only focuses on the effects of pH on the germination and growth of mung beans, we would recommend further analysis of salinity, regional temperature, seasonal weather, and daily hours of light at the location before making a final decision on growing Mung Beans at Site 3. The pH on location may be within range, but other environmental conditions, inclusion but not limited to the aforementioned ones may make the site unsuitable for the growth of Mung Beans. As an example, Oplinger et al. (1997) found that Mung Beans need 90 to 120 frost free days depending on teh exact strain to go from planting to maturity.
+Furthermore, this report only focuses on the effects of pH on the germination and growth of mung beans, we would recommend further analysis of salinity, regional temperature, seasonal weather, and daily hours of light at the location before making a final decision on growing Mung Beans at Site 3. The pH on location may be within range, but other environmental conditions, inclusion but not limited to the aforementioned ones may make the site unsuitable for the growth of Mung Beans. As an example, Oplinger et al. (1997) found that Mung Beans need 90 to 120 frost free days depending on the exact strain to go from planting to maturity.
 
 \clearpage
 
