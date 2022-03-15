@@ -1,0 +1,10 @@
+"0","ggplot2(Length, "
+"0","    aes(x = ""Day_Treatment_pH"", y = ""Length_mm"")) + "
+"0","    geom_boxplot(fill = 'lightgrey') +"
+"0","    labs(x = ""Day_Treatment_pH"", y = ""Length_mm"") +"
+"0","    axis.line = element_line(colour = 'gray', size = .75) +"
+"0","    panel.background = element_blank() +"
+"0","    plot.background = element_blank()"
+"2","Error in element_blank() + plot.background = element_blank() : 
+  invalid (NULL) left side of assignment
+"

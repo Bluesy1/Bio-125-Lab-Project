@@ -1,0 +1,25 @@
+library(readr)
+library(dplyr)
+library(ggplot2)
+Length <- read_csv("raw_data/Kendal-Freedman_BIOL125_Mung_Raw-Length2.csv", show_col_types = FALSE)
+
+
+confint.fun.ttest <- function(x, conf = 0.95){
+  return(data.frame(Mean = mean(x, na.rm = T),
+                    ymin  = t.test(x, conf.level = conf)$conf.int[1],
+                    ymax = t.test(x, conf.level = conf)$conf.int[2]))}
+
+ggplot(Length) +
+        geom_jitter(colour = 'black', size = 3, shape = 1, width = 0.1) +
+        stat_summary(fun.data = confint.fun.ttest, geom = 'errorbar',
+                     colour = 'black', width = 0.07,
+                     position = position_nudge(x = 0.15)) +
+        stat_summary(fun = mean,
+                     geom = 'point',
+                     colour = 'firebrick',
+                     size = 2,
+                     position = position_nudge(x = 0.15)) +
+    labs(x = x_var, y = y_var) +
+    axis.line = element_line(colour = 'gray', size = .75) +
+    panel.background = element_blank() +
+    plot.background = element_blank())
