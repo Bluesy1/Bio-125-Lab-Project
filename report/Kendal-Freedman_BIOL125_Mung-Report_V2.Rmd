@@ -63,7 +63,7 @@ knitr::kable(head(Ex_Data), caption = "Example data collection")
 
 Initially comparing germination rates of the mung beans in different pHs in Figure 1, it shows that all beans eventually germinated, including the one bean that did mold, however that bean stopped being tracked after it molded. The beans in the 7.0 pH took longer to start germinating, but once they started germinating, the beans in pH 7.0 germinated at a similar rate to the beans in the pH 6.2. Further, looking at the length of the beans, a few beans are observed to grow to a very long length in the pH 6.2 environment of greater 60 mm in length. However, looking at the means of both over time shows that the mean values are approximately equal throughout the experiment. Both the ph 6.2 and pH 7.0 environments have relative equal length error bars, and a relatively even distribution of lengths.
 
-```{r fig.align='center', echo=FALSE, fig.cap="Clockwise, starting top left, relative frequency of germination over time for mung beans in pH 6.2 and 7.0 in the top row, n=10 for pH 6.2 and n = 9 for pH 7.0, followed by strip-charts of the growth of mung beans in an environment of pH 6.2 and 7.0 respectfully, with the same n=10 for pH 6.2 and n=9 for pH 7.0 as for the relative frequency plots.", warning=FALSE, message=FALSE, out.width = '90%'}
+```{r fig.align='center', echo=FALSE, fig.cap="Clockwise, starting top left, relative frequency of germination over time for mung beans in pH 6.2 and 7.0 in the top row, n=10 for pH 6.2 and n = 9 for pH 7.0, followed by strip-charts of the growth of mung beans in an environment of pH 6.2 and 7.0 respectfully, with the same n=10 for pH 6.2 and n=9 for pH 7.0 as for the relative frequency plots.", warning=FALSE, message=FALSE, out.width = '100%'}
 #Loading images
 img0 <- readPNG("../figures/Kendal-Freedman_BIOL125-Lab5_6.2-Germination-Relative-FrequencyV1.png")
 img1 <- readPNG("../figures/Kendal-Freedman_BIOL125-Lab5_7.0-Germination-Relative-FrequencyV1.png")
@@ -82,25 +82,7 @@ grid.arrange(grob0, grob1, grob2, grob3, nrow = 2)
 
 invisible(dev.off())
 
-gridplot.0 <- readPNG("../figures/gridPlot.png")
-h<-dim(gridplot.0)[1]
-w<-dim(gridplot.0)[2]
-
-png(filename = "../figures/gridPlotFinal.png", width = 1200, height = 716)
-
-#adding text to image (refer to https://stackoverflow.com/a/23816416/6779509)
-
-par(mar=c(0,0,0,0), xpd=NA, mgp=c(0,0,0), oma=c(0,0,0,0), ann=F)
-plot.new()
-plot.window(0:1, 0:1)
-
-#fill plot with image
-usr<-par("usr")
-rasterImage(gridplot.0, usr[1], usr[3], usr[2], usr[4])
-
-invisible(dev.off())
-
-gridplot <- file.path("../figures/gridPlotFinal.png")
+gridplot <- file.path("../figures/gridPlot.png")
 knitr::include_graphics(gridplot)
 ```
 
